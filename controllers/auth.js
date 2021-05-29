@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 
 const User = require("../models/user");
 
-const S3 = require("../middleware/S3.js");
+// const S3 = require("../middleware/S3.js");
 
 exports.signup = async (req, res, next) => {
   try {
@@ -20,12 +20,12 @@ exports.signup = async (req, res, next) => {
     }
     // console.log(email)
     const email = req.body.email;
-    const username = req.body.username;
+    // const username = req.body.username;
     const password = req.body.password;
-    const occupation = req.body.occupation;
-    const address = req.body.address;
-    const gender = req.body.gender;
-    const age = Number(req.body.age);
+    // const occupation = req.body.occupation;
+    // const address = req.body.address;
+    // const gender = req.body.gender;
+    // const age = Number(req.body.age);
 
     emailExistence.check(email, function (error, response) {
       console.log("res: " + response);
@@ -36,11 +36,6 @@ exports.signup = async (req, res, next) => {
     const user = new User({
       email: email,
       password: hashedPw,
-      username: username,
-      age: age,
-      gender: gender,
-      occupation: occupation,
-      address: address,
     });
 
     const result = await user.save();
@@ -54,8 +49,10 @@ exports.signup = async (req, res, next) => {
 };
 
 exports.login = async (req, res, next) => {
+  
   const email = req.body.email;
   const password = req.body.password;
+
   let loadedUser;
   try {
     const user = await User.findOne({ email: email });

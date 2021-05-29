@@ -65,7 +65,7 @@ app.use("/help", (req, res, next) => {
 });
 
 app.use("/feed", feedRoutes);
-// app.use("/auth", authRoutes);
+app.use("/auth", authRoutes);
 
 app.use((error, req, res, next) => {
 
