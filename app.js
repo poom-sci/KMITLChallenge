@@ -8,7 +8,7 @@ const multer = require("multer");
 const apiAdapter = require("./apiAdapter");
 
 // const BASE_URL = "http://air4thai.pcd.go.th/forappV2/getAQI_JSON.php";
-const api = apiAdapter(BASE_URL);
+// const api = apiAdapter(BASE_URL);
 
 const feedRoutes = require("./routes/feed");
 const authRoutes = require("./routes/auth");
@@ -65,7 +65,7 @@ app.use("/help", (req, res, next) => {
 });
 
 app.use("/feed", feedRoutes);
-app.use("/auth", authRoutes);
+// app.use("/auth", authRoutes);
 
 app.use((error, req, res, next) => {
 
@@ -88,7 +88,7 @@ mongoose
       username +
       ":" +
       pass +
-      "@cluster0.8vhre.mongodb.net/" +
+      "@cluster0.fd4yi.mongodb.net/" +
       database +
       "?retryWrites=true&w=majority",
     { useUnifiedTopology: true, useNewUrlParser: true }

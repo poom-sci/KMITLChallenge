@@ -24,38 +24,46 @@ var fileLimits = {
 
 const router = express.Router();
 
-setInterval(feedController.updateAir4ThaiStations, 3600 * 1000);
+// setInterval(feedController.updateAir4ThaiStations, 3600 * 1000);
 
 router.get("/stations", feedController.getStations);
 
+router.post("/station", feedController.postStation);
+
 router.get("/nearestStation", feedController.getNearestStation);
 
-router.get("/stations/:stationID", feedController.getStation);
+router.get("/station/:stationID", feedController.getStation);
 
-// GET /feed/posts
-// router.get('/posts', isAuth, feedController.getPosts);
-router.get("/missions", feedController.getMissions);
+router.post("/bus", feedController.postBus);
 
-// POST /feed/post
-router.post(
-  "/createMission",
-  // multer({  dest: 'temp/',fileFilter: fileFilter }).single("coverImages"),
-  multer({ dest: "temp/", fileFilter: fileFilter }).array("missionCover", 10),
-  feedController.createMission
-);
+router.get("/bus", feedController.getBuses);
 
-// POST /feed/post
-router.put(
-  "/updateMission/:missionId",
-  // multer({  dest: 'temp/',fileFilter: fileFilter }).single("coverImages"),
-  multer({ dest: "temp/", fileFilter: fileFilter }).array("missionCover", 10),
-  feedController.updateMission
-);
+router.get("/bus/:stationID", feedController.getBus);
 
-// router.get('/post/:postId', isAuth, feedController.getPost);
-router.get("/mission/:missionId", feedController.getMission);
+// // GET /feed/posts
+// // router.get('/posts', isAuth, feedController.getPosts);
+// router.get("/missions", feedController.getMissions);
 
-router.get("/missionPage/:page", feedController.getMissionPage);
+// // POST /feed/post
+// router.post(
+//   "/createMission",
+//   // multer({  dest: 'temp/',fileFilter: fileFilter }).single("coverImages"),
+//   multer({ dest: "temp/", fileFilter: fileFilter }).array("missionCover", 10),
+//   feedController.createMission
+// );
+
+// // POST /feed/post
+// router.put(
+//   "/updateMission/:missionId",
+//   // multer({  dest: 'temp/',fileFilter: fileFilter }).single("coverImages"),
+//   multer({ dest: "temp/", fileFilter: fileFilter }).array("missionCover", 10),
+//   feedController.updateMission
+// );
+
+// // router.get('/post/:postId', isAuth, feedController.getPost);
+// router.get("/mission/:missionId", feedController.getMission);
+
+// router.get("/missionPage/:page", feedController.getMissionPage);
 
 
 // router.put(

@@ -2,27 +2,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const stationSchema = new Schema({
-  stationID: {
+  station_ID: {
     type: String,
     required: true,
   },
-  nameTH: {
-    type: String,
-    required: true,
-  },
-  nameEN: {
-    type: String,
-    required: true,
-  },
-  areaTH: {
-    type: String,
-    required: true,
-  },
-  areaEN: {
-    type: String,
-    required: true,
-  },
-  stationType: {
+  station_name: {
     type: String,
     required: true,
   },
@@ -30,10 +14,7 @@ const stationSchema = new Schema({
     type: { type: String },
     coordinates: [],
   },
-  AQILast: {
-    type: Object,
-    required: true,
-  },
+  bus_pass: [],
 });
 
 stationSchema.index({ location: "2dsphere" });
