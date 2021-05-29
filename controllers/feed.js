@@ -27,7 +27,7 @@ exports.postStation = (req, res, next) => {
   const lat = req.body.lat;
   const long = req.body.long;
 
-  console.log(req.body)
+  console.log(req.body);
 
   try {
     const station = new Station({
@@ -49,6 +49,7 @@ exports.postStation = (req, res, next) => {
 
 exports.getStations = (req, res, next) => {
   const stations = Station.find()
+    .sort({ station_ID: 1 })
     .then((stations) => {
       const totalItems = stations.length;
       res.status(200).json({
@@ -91,7 +92,7 @@ exports.getNearestStation = (req, res, next) => {
 };
 
 exports.getStation = (req, res, next) => {
-  const stationID =req.params.stationID;
+  const stationID = req.params.stationID;
 
   Station.findOne({ station_ID: stationID })
     .then((station) => {
@@ -128,6 +129,7 @@ exports.postBus = (req, res, next) => {
 
 exports.getBuses = (req, res, next) => {
   const Buses = Bus.find()
+    .sort({ Bus_ID: 1 })
     .then((Buses) => {
       const totalItems = Buses.length;
       res.status(200).json({
@@ -142,7 +144,7 @@ exports.getBuses = (req, res, next) => {
 };
 
 exports.getBus = (req, res, next) => {
-  const BusID = req.params.BusID
+  const BusID = req.params.BusID;
 
   Bus.findOne({ Bus_ID: BusID })
     .then((Bus) => {

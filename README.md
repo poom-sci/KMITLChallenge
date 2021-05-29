@@ -2,7 +2,7 @@
 
 url : http://kmitlchallenge-env.eba-anqypzmj.ap-southeast-1.elasticbeanstalk.com/
 
-# post
+# Post
 
 - create new bus 
 ```
@@ -32,24 +32,28 @@ url : http://kmitlchallenge-env.eba-anqypzmj.ap-southeast-1.elasticbeanstalk.com
 }
 ```
 
-# get
+# Get
 
 - get all buses
 ```
+#GET
 <url> + "/feed/bus" 
 ```
 
 - get all stations 
 ```
+#GET
 <url> + "/feed/stations" 
 ```
 
 - get bus by ID
 ```
+#GET
 <url> + "/feed/station/<busID>" 
 ```
 
 - get station by ID
 ```
+#GET
 <url> + "/feed/station/<stationID>" 
 ```
